@@ -40,14 +40,14 @@ metres Route::netLength() const
 
 metres Route::totalHeightGain() const
 {
-    const bool implemented = false;
-    assert(implemented);
+    for (int i = 0; i  ) {
+        
+    }
 }
 
 metres Route::netHeightGain() const
 {
-    const bool implemented = false;
-    assert(implemented);
+    // this will be the height
 }
 
 degrees Route::minLatitude() const
