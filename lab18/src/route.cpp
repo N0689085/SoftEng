@@ -129,8 +129,14 @@ Position Route::operator[](unsigned int idx) const
 
 Position Route::findPosition(const std::string & soughtName) const
 {
-    const bool implemented = false;
-    assert(implemented);
+    bool validName = false;
+    for (unsigned int i = 0; i < positionNames.size(); i++) {
+        if (soughtName == positionNames[i]) {
+            validName = true;
+            return positions[i];
+        }
+    }
+    if (!validName) throw std::invalid_argument("Position Name not found");
 }
 
 std::string Route::findNameOf(const Position & soughtPos) const
