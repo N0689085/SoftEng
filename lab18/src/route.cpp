@@ -32,8 +32,10 @@ metres Route::totalLength() const
 
 metres Route::netLength() const
 {
-    const bool implemented = false;
-    assert(implemented);
+    metres delatH, deltaV;
+    deltaH = distanceBetween(positions[0], positions[numPositions()-1]);
+    deltaV = positions[0].elevation() - positions[numPositions()-1].elevation();
+    return sqrt(pow(deltaH,2) + pow(deltaV,2));
 }
 
 metres Route::totalHeightGain() const
