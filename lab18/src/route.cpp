@@ -76,14 +76,20 @@ degrees Route::maxLongitude() const
 
 metres Route::minElevation() const
 {
-    const bool implemented = false;
-    assert(implemented);
+    metres lowestElevation = positions[0].elevation();
+    for (int i = 1; i < numPositions(); i++) {
+        if (positions[i].elevation() < lowestElevation) lowestElevation = positions[i].elevation();
+    }
+    return lowestElevation;
 }
 
 metres Route::maxElevation() const
 {
-    const bool implemented = false;
-    assert(implemented);
+    metres highestElevation = positions[0].elevation();
+    for (int i = 1; i < numPositions(); i++) {
+        if (positions[i].elevation() > lowestElevation) highestElevation = positions[i].elevation();
+    }
+    return highestElevation;
 }
 
 degrees Route::maxGradient() const
