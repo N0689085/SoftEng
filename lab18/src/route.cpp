@@ -132,8 +132,11 @@ degrees Route::steepestGradient() const
 
 Position Route::operator[](unsigned int idx) const
 {
-    const bool implemented = false;
-    assert(implemented);
+    if (idx < numPositions() && idx >= 0) {
+        return positions[idx];
+    } else {
+        throw std::out_of_range;
+    }
 }
 
 Position Route::findPosition(const std::string & soughtName) const
