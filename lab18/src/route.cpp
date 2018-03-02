@@ -21,10 +21,10 @@ std::string Route::name() const
 
 unsigned int Route::numPositions() const
 {
+    // return positions.size();
     int numOfPositions,
-    for (int i = 1;  i < numPositions(); i++)
-        int i = numOfPositions;
-        return numOfPositions;
+    for (int i = 1;  i < numPositions(); i++) int i = numOfPositions;
+    return numOfPositions;
 }
 
 metres Route::totalLength() const
