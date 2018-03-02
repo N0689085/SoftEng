@@ -42,14 +42,19 @@ metres Route::netLength() const
 
 metres Route::totalHeightGain() const
 {
-    for (int i = 0; i  ) {
-        
+    metres totHeight = 0;
+    for (int i = 0; i < numPositions(); i++) {
+        metres diffHeight = positions[i+1].elevation() - positions[i].elevation();
+        if (diffHeight > 0) totHeight += diffHeight;
     }
+    return totHeight;
 }
 
 metres Route::netHeightGain() const
 {
-    // this will be the height
+    metres netHeight = positions[numPositions()-1].elevation() - positions[0].elevation();
+    if (netHeight > 0) return netHeight;
+    return 0;
 }
 
 degrees Route::minLatitude() const
