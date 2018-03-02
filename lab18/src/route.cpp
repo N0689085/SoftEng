@@ -45,6 +45,7 @@ metres Route::totalHeightGain() const
     metres totHeight = 0;
     for (int i = 0; i < numPositions(); i++) {
         metres diffHeight = positions[i+1].elevation() - positions[i].elevation();
+        if (i == numPositions()-1) break;
         if (diffHeight > 0) totHeight += diffHeight;
     }
     return totHeight;
